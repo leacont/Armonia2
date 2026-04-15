@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Multi Scrap &amp; Unscrap Management</title>
+  <style>
+    body { font-family: Arial, sans-serif; color: #2a2a2a; max-width: 980px; margin: 0 auto; padding: 16px; }
+    h1 { color: #3c2f6e; margin-bottom: 4px; }
+    .sub { color: #666; margin-top: 0; }
+    h2 { color: #3c2f6e; margin-top: 22px; margin-bottom: 8px; }
+    ul { line-height: 1.6; margin-top: 0; }
+    .box { background: #faf9fe; border: 1px solid #ece8f7; border-radius: 10px; padding: 12px 14px; margin: 12px 0; }
+    .shot { width: 100%; border: 1px solid #e7e7e7; border-radius: 10px; margin: 10px 0; display: block; }
+    .banner { width: 100%; border: 1px solid #e7e7e7; border-radius: 10px; margin: 14px 0; display: block; }
+    .badge { display: inline-block; margin-right: 8px; margin-bottom: 6px; background: #f0ecfb; border: 1px solid #d9d1f2; color: #3c2f6e; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <h1>Multi Scrap &amp; Unscrap Management</h1>
+  <p class="sub">Advanced scrap governance for Odoo Inventory and Manufacturing.</p>
+  <div>
+    <span class="badge">Odoo 18</span>
+    <span class="badge">Inventory</span>
+    <span class="badge">Manufacturing</span>
+    <span class="badge">Armonia</span>
+  </div>
+  <img class="banner" src="banner.png" alt="Multi Scrap and Unscrap Management banner"/>
+
+  <h2>Business Value</h2>
+  <div class="box">
+    Standardize scrap and reversal operations with traceability, governance, and operator-friendly screens.
+  </div>
+
+  <h2>Core Features</h2>
+  <ul>
+    <li>Scrap Categories and Scrap Reasons setup from Inventory Configuration.</li>
+    <li>Each reason linked to one category for clean governance.</li>
+    <li>Single-reason and multi-reason scrap in one operational form.</li>
+    <li>Category-based reason loading for fast entry.</li>
+    <li>Split one scrap into multiple reasons with strict quantity validation.</li>
+    <li>Unscrap wizard with mandatory Reason and full traceability.</li>
+    <li>Partial/full reversals with audit history.</li>
+    <li>Unified list columns for Reason, Scrap Category, Quantity and Status.</li>
+  </ul>
+
+  <h2>Configuration &amp; Workflow</h2>
+  <ul>
+    <li>Inventory &gt; Configuration &gt; Scrap Configuration.</li>
+    <li>Create Scrap Categories, then Scrap Reasons.</li>
+    <li>Run scrap simple or multi-reason split in the same form.</li>
+    <li>Use Unscrap wizard on done records with required Reason.</li>
+  </ul>
+
+  <h2>Support</h2>
+  <ul>
+    <li>Support email: le.contino@gmail.com</li>
+    <li>Compatible edition: Odoo 18 (this package)</li>
+    <li>Also available: Odoo 19 edition</li>
+  </ul>
+
+  <h2>Screenshots - Scrap Setup</h2>
+  <img class="shot" src="screen_setup_01.png" alt="Scrap configuration menu in Inventory"/>
+  <img class="shot" src="screen_setup_02.png" alt="Scrap Categories list"/>
+  <img class="shot" src="screen_setup_03.png" alt="Scrap Reasons list with categories"/>
+
+  <h2>Screenshots - Scrap Operations</h2>
+  <img class="shot" src="screen_scrap_01.png" alt="Scrap orders list with reason and category columns"/>
+  <img class="shot" src="screen_scrap_02.png" alt="New scrap form with multi scrap area"/>
+  <img class="shot" src="screen_scrap_03.png" alt="Loaded reasons by category with split quantities"/>
+
+  <h2>Screenshots - Unscrap</h2>
+  <img class="shot" src="screen_unscrap_01.png" alt="Unscrap action from scrap order list"/>
+  <img class="shot" src="screen_unscrap_02.png" alt="Unscrap wizard with required reason"/>
+  <img class="shot" src="screen_unscrap_03.png" alt="Unscrap result in scrap list"/>
+</body>
+</html>

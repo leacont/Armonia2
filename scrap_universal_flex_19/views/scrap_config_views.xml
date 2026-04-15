@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Categories -->
+    <record id="action_scrap_category_config" model="ir.actions.act_window">
+        <field name="name">Scrap Categories</field>
+        <field name="res_model">scrap.category</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Define scrap categories</p>
+            <p>Use the list in editable mode to load multiple rows quickly.</p>
+        </field>
+    </record>
+
+    <record id="view_scrap_category_list_config" model="ir.ui.view">
+        <field name="name">scrap.category.list.config</field>
+        <field name="model">scrap.category</field>
+        <field name="arch" type="xml">
+            <list editable="bottom" multi_edit="1">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_scrap_category_form_config" model="ir.ui.view">
+        <field name="name">scrap.category.form.config</field>
+        <field name="model">scrap.category</field>
+        <field name="arch" type="xml">
+            <form string="Scrap Category">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Reason tags -->
+    <record id="action_scrap_reason_tag_config_omniflex" model="ir.actions.act_window">
+        <field name="name">Scrap Reasons</field>
+        <field name="res_model">stock.scrap.reason.tag</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Define scrap reasons</p>
+            <p>List is editable to load many rows in one pass.</p>
+        </field>
+    </record>
+
+    <record id="view_stock_scrap_reason_tag_list_omniflex" model="ir.ui.view">
+        <field name="name">stock.scrap.reason.tag.list.omniflex</field>
+        <field name="model">stock.scrap.reason.tag</field>
+        <field name="arch" type="xml">
+            <list editable="bottom" multi_edit="1">
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="category_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_stock_scrap_reason_tag_form_omniflex" model="ir.ui.view">
+        <field name="name">stock.scrap.reason.tag.form.omniflex</field>
+        <field name="model">stock.scrap.reason.tag</field>
+        <field name="arch" type="xml">
+            <form string="Scrap Reason">
+                <sheet>
+                    <group>
+                        <field name="code"/>
+                        <field name="name"/>
+                        <field name="category_id"/>
+                        <field name="sequence"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem
+        id="menu_scrap_omniflex_config_root"
+        name="Scrap Configuration"
+        parent="stock.menu_stock_config_settings"
+        sequence="80"
+        groups="stock.group_stock_manager"
+    />
+    <menuitem
+        id="menu_scrap_category_config"
+        name="Scrap Categories"
+        parent="menu_scrap_omniflex_config_root"
+        action="action_scrap_category_config"
+        sequence="10"
+        groups="stock.group_stock_manager"
+    />
+    <menuitem
+        id="menu_scrap_reason_tag_config"
+        name="Scrap Reasons"
+        parent="menu_scrap_omniflex_config_root"
+        action="action_scrap_reason_tag_config_omniflex"
+        sequence="20"
+        groups="stock.group_stock_manager"
+    />
+</odoo>

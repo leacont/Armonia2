@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Multi Scrap and Unscrap Management banner">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1d1735"/>
+      <stop offset="55%" stop-color="#2c2252"/>
+      <stop offset="100%" stop-color="#3c2f6e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f25f7a"/>
+      <stop offset="100%" stop-color="#ff9b70"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <circle cx="1090" cy="118" r="170" fill="#ffffff" opacity="0.06"/>
+  <circle cx="1060" cy="592" r="230" fill="#ffffff" opacity="0.05"/>
+  <g transform="translate(70,90)">
+    <rect x="0" y="0" width="610" height="540" rx="26" fill="#ffffff" opacity="0.97"/>
+    <rect x="34" y="34" width="200" height="28" rx="14" fill="#d9d5ea"/>
+    <rect x="34" y="82" width="150" height="18" rx="9" fill="#ece8f7"/>
+    <rect x="34" y="115" width="250" height="18" rx="9" fill="#ece8f7"/>
+    <rect x="34" y="170" width="542" height="68" rx="14" fill="#f6f4fc"/>
+    <rect x="34" y="255" width="542" height="68" rx="14" fill="#f6f4fc"/>
+    <rect x="34" y="340" width="260" height="160" rx="14" fill="#f6f4fc"/>
+    <rect x="316" y="340" width="260" height="160" rx="14" fill="#f6f4fc"/>
+    <rect x="390" y="28" width="184" height="44" rx="22" fill="url(#accent)"/>
+    <text x="482" y="56" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#fff">Unscrap</text>
+  </g>
+  <g transform="translate(730,120)">
+    <text x="0" y="0" font-family="Segoe UI, Arial, sans-serif" font-size="58" font-weight="800" fill="#ffffff">Multi Scrap &amp;</text>
+    <text x="0" y="72" font-family="Segoe UI, Arial, sans-serif" font-size="58" font-weight="800" fill="#ffffff">Unscrap Management</text>
+    <text x="0" y="128" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="600" fill="#f6b6c2">by Armonia</text>
+    <text x="0" y="192" font-family="Segoe UI, Arial, sans-serif" font-size="25" fill="#e7e2f7">- Multi-reason split validation</text>
+    <text x="0" y="232" font-family="Segoe UI, Arial, sans-serif" font-size="25" fill="#e7e2f7">- Scrap category / reason governance</text>
+    <text x="0" y="272" font-family="Segoe UI, Arial, sans-serif" font-size="25" fill="#e7e2f7">- Controlled partial or full unscrap</text>
+    <text x="0" y="312" font-family="Segoe UI, Arial, sans-serif" font-size="25" fill="#e7e2f7">- Mandatory reason and audit trail</text>
+    <text x="0" y="352" font-family="Segoe UI, Arial, sans-serif" font-size="25" fill="#e7e2f7">- Odoo 18 and Odoo 19 editions</text>
+  </g>
+</svg>

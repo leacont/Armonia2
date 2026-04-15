@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_scrap_form_inherit_multi_reason_flex" model="ir.ui.view">
+        <field name="name">stock.scrap.form.inherit.multi.reason.flex</field>
+        <field name="model">stock.scrap</field>
+        <field name="inherit_id" ref="stock.stock_scrap_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button
+                    name="action_open_unscrap_wizard"
+                    type="object"
+                    string="Unscrap"
+                    class="btn-danger"
+                    invisible="state != 'done' or not can_unscrap"
+                />
+            </xpath>
+
+            <xpath expr="//field[@name='scrap_reason_tag_ids']" position="after">
+                <field name="reference_code" readonly="state != 'draft'"/>
+                <field name="root_cause" readonly="state != 'draft'"/>
+                <field name="corrective_action" readonly="state != 'draft'"/>
+            </xpath>
+
+            <xpath expr="//sheet/group" position="after">
+                <group string="Multi Scrap">
+                    <group>
+                        <field name="multi_scrap_category_ids" widget="many2many_tags" readonly="state != 'draft'"/>
+                        <button
+                            name="action_load_reasons_from_category"
+                            type="object"
+                            string="Load Selected Categories"
+                            class="btn-secondary"
+                            invisible="state != 'draft' or not multi_scrap_category_ids"
+                        />
+                    </group>
+                    <field name="reason_line_ids" nolabel="1" colspan="2" context="{'default_scrap_id': id}" readonly="state != 'draft'">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="reason_id" required="1"/>
+                            <field name="category_id" optional="show"/>
+                            <field name="allocated_qty" string="Scrap Qty" sum="Scrap Qty Total"/>
+                            <field name="note" optional="show"/>
+                        </list>
+                    </field>
+                </group>
+
+                <group string="Stock Balance">
+                    <field name="stock_balance_before" readonly="1"/>
+                    <field name="scrap_qty"/>
+                    <field name="stock_balance_after" readonly="1"/>
+                </group>
+
+                <group string="Unscrap Control" invisible="state != 'done'">
+                    <field name="unscrap_qty_total" readonly="1"/>
+                    <field name="unscrap_qty_available" readonly="1"/>
+                    <field name="can_unscrap" invisible="1"/>
+                    <field name="unscrap_line_ids" nolabel="1" colspan="2" readonly="1">
+                        <list>
+                            <field name="date_done"/>
+                            <field name="qty"/>
+                            <field name="reason" optional="show"/>
+                            <field name="from_location_id"/>
+                            <field name="to_location_id"/>
+                            <field name="lot_id" optional="show"/>
+                            <field name="user_id" optional="show"/>
+                            <field name="move_id" optional="show"/>
+                            <field name="note" optional="show"/>
+                        </list>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_stock_scrap_tree_inherit_multi_reason_flex" model="ir.ui.view">
+        <field name="name">stock.scrap.tree.inherit.multi.reason.flex</field>
+        <field name="model">stock.scrap</field>
+        <field name="inherit_id" ref="stock.stock_scrap_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <header>
+                    <button
+                        name="action_open_unscrap_wizard"
+                        type="object"
+                        string="Unscrap"
+                        class="btn-danger"
+                    />
+                </header>
+            </xpath>
+            <field name="product_id" position="after">
+                <field name="reason_line_summary" string="Reason" optional="show"/>
+                <field name="scrap_category_summary" string="Scrap Category" optional="show"/>
+                <field name="reference_code" optional="show"/>
+                <field name="stock_balance_before" optional="hide"/>
+                <field name="stock_balance_after" optional="hide"/>
+                <field name="unscrap_qty_total" optional="hide"/>
+                <field name="unscrap_qty_available" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="action_stock_scrap_unscrap_full" model="ir.actions.server">
+        <field name="name">Unscrap Selected</field>
+        <field name="model_id" ref="stock.model_stock_scrap"/>
+        <field name="binding_model_id" ref="stock.model_stock_scrap"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">action = records.action_open_unscrap_wizard()</field>
+    </record>
+</odoo>
