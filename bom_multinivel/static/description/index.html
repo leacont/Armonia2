@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Multi-Level BoM Explorer</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; color: #1e2a33; max-width: 980px; margin: 0 auto; padding: 16px; }
+    h1 { color: #123a5c; margin-bottom: 4px; }
+    .sub { color: #5a6670; margin-top: 0; }
+    h2 { color: #123a5c; margin-top: 22px; margin-bottom: 8px; }
+    ul { line-height: 1.65; margin-top: 0; }
+    .box { background: #f4f9fc; border: 1px solid #d5e6f0; border-radius: 10px; padding: 12px 14px; margin: 12px 0; }
+    .banner { width: 100%; border: 1px solid #d0d8de; border-radius: 10px; margin: 14px 0; display: block; }
+    .shot { width: 100%; border: 1px solid #d0d8de; border-radius: 10px; margin: 10px 0; display: block; }
+    .cap { font-size: 14px; color: #3d4a54; margin: 4px 0 18px 0; line-height: 1.5; }
+    .badge { display: inline-block; margin-right: 8px; margin-bottom: 6px; background: #e8f4fb; border: 1px solid #c5dce8; color: #123a5c; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 600; }
+    .note { font-size: 13px; color: #5a6670; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Multi-Level BoM Explorer</h1>
+  <p class="sub">Turn complex bills of materials into a clear tree of manufacturing orders—automatically, with project traceability.</p>
+  <div>
+    <span class="badge">Odoo 18</span>
+    <span class="badge">Manufacturing</span>
+    <span class="badge">Sales</span>
+    <span class="badge">Armonia</span>
+  </div>
+  <img class="banner" src="banner.png" alt="Multi-Level BoM Explorer — Armonia"/>
+
+  <h2>What “multi-level” means (with your products)</h2>
+  <div class="box">
+    A <strong>multi-level</strong> structure is simply a finished product that contains <strong>sub-assemblies</strong>, each with its own BoM.
+    The module name reflects that reality: you work with <strong>several BoM levels</strong>, not a flat single-level kit.
+  </div>
+  <img class="shot" src="screen_01_mo_product_levels.png" alt="Manufacturing order: selecting a top-level product that has deeper BoM levels"/>
+  <p class="cap"><strong>1 — Top-level product.</strong> You start from the finished item (for example “Product level 2”). Components underneath are other manufactured products (“level 1”, “level 0”) that carry their own BoMs.</p>
+  <img class="shot" src="screen_03_bom_overview_tree.png" alt="BoM overview tree: finished product down to components"/>
+  <p class="cap"><strong>2 — Same story in the BoM Overview.</strong> Odoo shows the hierarchy as a tree: finished good → sub-assemblies → raw materials. That visual is the “multi-level” idea the name points to.</p>
+  <img class="shot" src="screen_02_mo_source_chain.png" alt="Manufacturing orders list: child MOs linked by Source to parent MOs"/>
+  <p class="cap"><strong>3 — Orders follow the hierarchy.</strong> After confirmation, you see <strong>linked manufacturing orders</strong> (Source / origin) that mirror the BoM depth—so shop-floor execution matches the multi-level structure.</p>
+
+  <h2>Why teams buy this</h2>
+  <div class="box">
+    Deep product structures should not mean manual MO creation for every sub-assembly. This module confirms the top manufacturing order and
+    <strong>recursively generates and confirms child MOs</strong> according to your BoMs—so production planning stays aligned with Odoo’s own BoM resolution rules.
+  </div>
+
+  <h2>What you get</h2>
+  <ul>
+    <li><strong>Automatic multilevel explosion on MO confirm</strong> — walks BoM lines and creates the next level of manufacturing orders where a manufacturing BoM exists.</li>
+    <li><strong>Phantom (kit) BoM support</strong> — expands kits without creating an MO for the phantom; continues down the exploded components.</li>
+    <li><strong>Subcontracting-aware</strong> — subcontracting BoMs are skipped by design to avoid conflicting flows.</li>
+    <li><strong>Depth guard</strong> — recursion is capped (25 levels) with logging if the limit is reached.</li>
+    <li><strong>Project number</strong> — sequence-based project number on MOs, inherited by children linked via <code>origin</code> for end-to-end traceability.</li>
+    <li><strong>Operational carry-down</strong> — when present on the parent MO, router/job/sales-order related fields are propagated to generated child MOs for consistent job tracking.</li>
+    <li><strong>Manual trigger</strong> — server action / technical entry point <code>action_propagate_router</code> for controlled propagation when needed.</li>
+  </ul>
+
+  <h2>Requirements and fit</h2>
+  <ul>
+    <li>Odoo <strong>18.0</strong> with <strong>Manufacturing</strong> and <strong>Sales</strong> installed.</li>
+    <li>Use the addon folder <strong>bom_multinivel_18</strong> on 18.0 servers; use <strong>bom_multinivel</strong> for Odoo 19.</li>
+    <li>Designed for companies with <strong>multilevel manufacturing BoMs</strong> who want child MOs created automatically at confirmation time.</li>
+  </ul>
+  <p class="note">If another customization also creates child MOs on confirm, review overlap—you may need a single orchestration strategy.</p>
+
+  <h2>Support</h2>
+  <ul>
+    <li>Publisher: <strong>Armonia</strong></li>
+    <li>Support email: <a href="mailto:le.contino@gmail.com">le.contino@gmail.com</a></li>
+  </ul>
+</body>
+</html>
